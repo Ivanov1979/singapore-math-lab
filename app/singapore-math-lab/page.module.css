@@ -1,0 +1,291 @@
+.main{max-width:880px;margin:0 auto;padding:28px 18px 70px;font-family:system-ui,-apple-system,sans-serif;color:#17283e}.header{background:linear-gradient(125deg,#0f766e,#155e75);border-radius:22px;padding:26px;color:white}.header h1{font-size:clamp(26px,5vw,40px);margin:7px 0}.header p{margin:0;opacity:.9}.kicker{font-size:12px;font-weight:800;letter-spacing:2px}.nav{display:flex;gap:8px;margin:24px 0 12px;flex-wrap:wrap}.nav button{width:43px;height:43px;border-radius:12px;font-weight:800;cursor:pointer}.navButton{background:#e2e8f0;color:#334155;border:1px solid #cbd5e1}.current{background:#0f766e;color:white;border:2px solid #0f766e}.progress{font-size:13px;color:#64748b;font-weight:700}.main h2{font-size:25px;margin:9px 0 17px}.panel{border:1px solid #cbd5e1;border-radius:20px;padding:22px;background:#fff;box-shadow:0 5px 20px #0f172a0b}.story{font-size:18px;line-height:1.75;background:#f0fdfa;padding:18px;border-radius:12px;border-left:5px solid #14b8a6;margin:0 0 15px}.instructions{font-size:14px;color:#475569;line-height:1.6}.token{display:inline-block;padding:2px 9px;background:#dbeafe;color:#1d4ed8;border:2px dashed #60a5fa;border-radius:9px;cursor:grab;font-weight:800;margin:2px;user-select:none;touch-action:manipulation}.selected{outline:3px solid #f59e0b!important;background:#fef3c7!important}.inlineTokens{margin:15px 0;font-size:15px}.barDiagram{margin:22px auto;max-width:620px}.drop{min-height:75px;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;position:relative}.dropCaption{font-size:12px;text-align:center;color:#64748b;font-weight:700}.bar{padding:15px;min-height:54px;display:grid;place-items:center;border-radius:6px;font-weight:800;font-size:22px;transition:transform .25s ease,background .25s}.drop:hover .bar{transform:translateY(-2px)}.total{background:#bfdbfe;border:2px solid #2563eb}.partA{background:#bbf7d0;border:2px solid #16a34a}.partB{background:#fde68a;border:2px solid #d97706}.parts{display:grid;grid-template-columns:1fr 1fr;gap:4px}.panel button,.footer button{background:#0f766e;color:white;border:0;border-radius:10px;padding:12px 17px;cursor:pointer;font-weight:750;margin:6px 8px 6px 0}.panel button:disabled,.footer button:disabled{opacity:.4;cursor:not-allowed}.panel button.secondary,.footer button.secondary{background:#e2e8f0;color:#334155}.good{background:#dcfce7;border-radius:9px;padding:12px;color:#166534;font-weight:700}.hint{background:#fff7ed;border-radius:9px;padding:12px;color:#9a3412}.next{border-top:1px solid #e2e8f0;margin-top:20px;padding-top:17px}.panel label{display:block;font-weight:700;margin:12px 0}.panel input{display:block;width:100%;max-width:420px;padding:13px;border:2px solid #cbd5e1;border-radius:10px;font:inherit;margin:9px 0}.scaleWrap,.scaleBuild{position:relative;min-height:275px;background:linear-gradient(#f8fafc,#e0f2fe);border-radius:18px;overflow:hidden;margin:15px 0}.scaleBeam{position:absolute;top:120px;left:8%;width:84%;height:9px;border-radius:9px;background:#64748b}.scalePole{position:absolute;top:120px;left:calc(50% - 5px);height:113px;width:10px;background:#64748b}.scaleBase{position:absolute;top:229px;left:36%;width:28%;height:13px;border-radius:8px;background:#475569}.plateRow,.buildPlates{position:absolute;top:54px;left:4%;width:92%;display:grid;grid-template-columns:1fr 1fr;gap:12%;align-items:end}.plate{height:135px;display:flex;align-items:end;justify-content:center;padding:5px;border-bottom:14px solid #94a3b8;border-radius:0 0 22px 22px}.plateContents,.buildContents{display:flex;flex-wrap:wrap;align-items:end;justify-content:center;gap:3px;max-width:170px;min-height:60px}.crate{width:40px;height:44px;background:linear-gradient(135deg,#fde68a,#f59e0b);border:2px solid #a16207;border-radius:5px;display:inline-grid;place-items:center;font-size:25px;font-weight:900;color:#78350f;box-shadow:2px 3px 0 #a1620744;flex:none}.marble{display:inline-block;width:21px;height:21px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#ecfeff,#5eead4 35%,#0f766e);border:1px solid #0f766e;box-shadow:1px 2px 3px #134e4a33;flex:none;animation:pop .25s ease}.smallMarble{width:16px;height:16px}.subNote{position:absolute;bottom:4px;left:12px;right:12px;text-align:center;font-size:12px}.observeSub{padding:20px;background:#f8fafc;border-radius:15px;margin:18px 0;text-align:center}.subEquation{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px}.minus{font-size:25px;font-weight:800;margin:0 5px}.buildPlates{top:48px;gap:7%;left:3%;width:94%}.buildPlates .drop{height:148px;justify-content:end;border-bottom:14px solid #94a3b8;border-radius:0 0 25px 25px;padding:8px 4px;align-items:center;background:#ffffff40;border-top:2px dashed #94a3b8}.buildPlates .dropCaption{order:2}.buildContents{align-content:end;max-width:100%;min-height:75px}.counts{text-align:center;font-size:13px;color:#475569}.tray{margin:20px 0;background:#f1f5f9;border:2px dashed #94a3b8;border-radius:15px;padding:16px}.trayItems{display:flex;gap:15px;align-items:start;flex-wrap:wrap;margin-top:12px}.draggable{cursor:grab;display:inline-flex;align-items:center;gap:6px;user-select:none;touch-action:manipulation}.marblesTray{display:flex;flex-wrap:wrap;gap:8px;flex:1;min-width:150px;max-width:600px}.marblesTray .draggable{padding:2px}.actions{display:flex;flex-wrap:wrap}.footer{display:flex;justify-content:space-between;margin-top:24px}@keyframes pop{from{transform:scale(.4);opacity:.2}to{transform:scale(1);opacity:1}}@media(max-width:500px){.panel{padding:13px}.story{font-size:16px;padding:12px}.buildPlates{gap:4%}.crate{width:31px;height:34px;font-size:19px}.smallMarble{width:13px;height:13px}.plateContents{max-width:125px}}
+
+/* Balanza de alta definición: cuerpo metálico, platos suspendidos y movimiento suave. */
+.scaleWrap,.scaleBuild{
+  isolation:isolate;
+  min-height:310px;
+  background:
+    radial-gradient(ellipse at 50% 13%,rgba(255,255,255,.98),transparent 64%),
+    linear-gradient(165deg,#effaff 0%,#dcecf5 70%,#cbdfe9 100%);
+  border:1px solid #c5dbe8;
+  box-shadow:inset 0 2px 16px #fff9,0 12px 26px #0f3d5714;
+}
+.scaleWrap:after,.scaleBuild:after{
+  content:"";position:absolute;bottom:19px;left:12%;width:76%;height:14px;
+  border-radius:50%;background:#24445d20;filter:blur(7px);z-index:-1;
+}
+.scaleBeam{
+  top:119px;left:7%;width:86%;height:14px;z-index:2;
+  border:1px solid #3f5870;
+  background:linear-gradient(180deg,#f1f7fb 0%,#b9cedb 22%,#5a7d94 52%,#334e65 100%);
+  box-shadow:0 3px 5px #24445d40,inset 0 2px 2px #fff9;
+  transition:transform .55s cubic-bezier(.2,.8,.2,1);
+  transform-origin:center center;
+}
+.scaleBeam:before{
+  content:"";position:absolute;left:calc(50% - 12px);top:-6px;width:24px;height:24px;
+  border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#d3e0e9 34%,#59768a 75%);
+  border:2px solid #38566e;box-shadow:0 2px 5px #243c5266;
+}
+.scalePole{
+  top:124px;left:calc(50% - 8px);height:126px;width:16px;
+  background:linear-gradient(90deg,#314d63,#e4eff6 35%,#829eb0 65%,#314d63);
+  border:1px solid #375369;box-shadow:3px 3px 7px #24445d26;
+}
+.scaleBase{
+  top:244px;left:34%;width:32%;height:18px;
+  background:linear-gradient(180deg,#d9e8f0,#718ca1 40%,#304e65);
+  border:1px solid #35546b;border-radius:50% 50% 9px 9px;
+  box-shadow:0 5px 6px #24445d36;
+}
+.plateRow,.buildPlates{top:42px;align-items:end;}
+.plate,.buildPlates .drop{
+  position:relative;
+  border-bottom:12px solid #54758b;
+  border-radius:0 0 52% 52% / 0 0 17px 17px;
+  box-shadow:0 7px 9px #27445a24,inset 0 -5px 0 #dceaf3;
+  background:linear-gradient(180deg,#ffffff19,#ffffff65);
+}
+.plate:before,.buildPlates .drop:before{
+  content:"";position:absolute;left:9%;right:9%;bottom:100%;height:43px;
+  border-left:2px solid #66869b;border-right:2px solid #66869b;
+  pointer-events:none;
+}
+.plate:after,.buildPlates .drop:after{
+  content:"";position:absolute;left:4%;right:4%;bottom:-13px;height:6px;
+  border-radius:50%;background:linear-gradient(180deg,#e5f2f8,#67899e);
+  pointer-events:none;
+}
+.buildPlates .drop{
+  height:149px;min-width:0;cursor:pointer;
+  border-top:0;border-bottom:12px solid #54758b;
+  background:linear-gradient(180deg,#ffffff24,#ffffff99);
+  transition:background .2s,box-shadow .2s,transform .2s;
+}
+.buildPlates .drop:hover,.buildPlates .drop:focus-within{
+  background:#c9f6f080;box-shadow:0 0 0 3px #14b8a640,0 8px 15px #0f766e2a;
+}
+.plateContents,.buildContents{position:relative;z-index:1;}
+.crate{
+  background:linear-gradient(145deg,#fff2b1 0%,#f9c642 35%,#e7a51e 100%);
+  border:2px solid #99590c;
+  box-shadow:inset 2px 2px 0 #fff7cf,3px 5px 6px #6f48083d;
+  transform-origin:bottom center;animation:land .42s cubic-bezier(.2,1.4,.4,1);
+}
+.marble{
+  background:radial-gradient(circle at 27% 23%,#fff 0%,#d8fffa 10%,#73e5d8 29%,#18a89a 64%,#0d615e 100%);
+  border:1px solid #08736b;
+  box-shadow:inset -2px -2px 4px #074f4a55,1px 3px 4px #123c3b38;
+  animation:land .4s cubic-bezier(.2,1.5,.4,1);
+}
+.draggable:hover .marble,.draggable:hover .crate{filter:brightness(1.1);transform:translateY(-3px) scale(1.08);}
+.draggable:active{cursor:grabbing;}
+.tray{
+  background:linear-gradient(180deg,#fff,#f0f9ff);
+  border:2px dashed #8aaac0;box-shadow:inset 0 1px 6px #d8eaf5;
+}
+@keyframes land{
+  0%{transform:translateY(-22px) scale(.82);opacity:.3}
+  65%{transform:translateY(3px) scale(1.07);opacity:1}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .marble,.crate{animation:none!important}
+  .scaleBeam,.buildPlates .drop{transition:none!important}
+}
+@media(max-width:500px){
+  .scaleWrap,.scaleBuild{min-height:290px}
+  .scaleBase{top:234px}.scalePole{height:116px}
+}
+
+/* Soporte central claramente visible: columna, trípode y pie. */
+.scaleWrap,.scaleBuild{min-height:330px}
+.scaleBeam{z-index:5}
+.scalePole{
+  z-index:4!important;
+  top:128px!important;
+  left:calc(50% - 11px)!important;
+  width:22px!important;
+  height:148px!important;
+  border:2px solid #29495f!important;
+  border-radius:5px!important;
+  background:linear-gradient(90deg,#203c50 0%,#829eae 20%,#f7fcff 48%,#829eae 77%,#203c50 100%)!important;
+  box-shadow:4px 4px 8px #173b5355!important;
+}
+.scalePole:before,.scalePole:after{
+  content:"";position:absolute;bottom:-1px;
+  width:65px;height:12px;border-radius:9px;
+  background:linear-gradient(180deg,#e7f3fa,#47677e);
+  border:1px solid #315168;
+  box-shadow:1px 3px 4px #173b5340;
+}
+.scalePole:before{right:10px;transform:rotate(-24deg);transform-origin:right center}
+.scalePole:after{left:10px;transform:rotate(24deg);transform-origin:left center}
+.scaleBase{
+  z-index:6!important;
+  top:268px!important;
+  left:31%!important;width:38%!important;height:22px!important;
+  border-radius:45% 45% 10px 10px!important;
+  background:linear-gradient(180deg,#e9f5fc,#809eaf 48%,#28475e)!important;
+  box-shadow:0 7px 7px #1b40554d!important;
+}
+.plateRow,.buildPlates{z-index:2}
+@media(max-width:500px){.scalePole{height:132px!important}.scaleBase{top:252px!important}}
+
+/* FIX: los platillos cuelgan de la barra mediante dos tirantes visibles. */
+.scaleWrap,.scaleBuild{min-height:350px!important;overflow:hidden}
+.scaleBeam{top:66px!important;z-index:5!important;left:6%!important;width:88%!important}
+.scalePole{top:77px!important;height:216px!important;z-index:1!important}
+.scaleBase{top:286px!important;z-index:6!important}
+.plateRow,.buildPlates{
+ top:123px!important;left:4%!important;width:92%!important;
+ gap:10%!important;align-items:end!important;z-index:3!important;
+}
+.plate,.buildPlates .drop{
+ height:90px!important;min-height:90px!important;
+ border-top:0!important;
+ border-bottom:13px solid #54758b!important;
+ border-radius:0 0 45% 45% / 0 0 16px 16px!important;
+ background:linear-gradient(180deg,#ffffff16,#e3f1f999)!important;
+ position:relative!important;
+}
+/* Cables: desde el punto de unión de la barra hasta el borde del platillo */
+.plate:before,.buildPlates .drop:before{
+ content:''!important;position:absolute!important;
+ left:9%!important;right:9%!important;
+ bottom:0!important;top:auto!important;height:145px!important;
+ border-left:3px solid #52778f!important;
+ border-right:3px solid #52778f!important;
+ border-top:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:-1px 0 0 #d8eaf3,1px 0 0 #d8eaf3!important;
+ z-index:0!important;pointer-events:none!important;
+}
+.plate:after,.buildPlates .drop:after{
+ content:''!important;position:absolute!important;
+ left:5%!important;right:5%!important;bottom:-14px!important;
+ height:8px!important;border-radius:50%!important;
+ background:linear-gradient(180deg,#f0faff,#67899e)!important;
+ z-index:2!important;pointer-events:none!important;
+}
+.plateContents,.buildContents{position:relative!important;z-index:2!important;max-height:85px;overflow:visible}
+.buildPlates .dropCaption{position:absolute;bottom:-36px;left:0;right:0}
+.subNote{bottom:3px!important}
+@media(max-width:500px){
+ .scaleWrap,.scaleBuild{min-height:345px!important}
+ .plateRow,.buildPlates{gap:5%!important;left:3%!important;width:94%!important}
+ .scalePole{height:216px!important}
+ .scaleBase{top:286px!important}
+}
+
+/* Diseño basado en la balanza de referencia aportada por el docente.
+   El SVG es una única estructura: cables, platos, barra y pedestal nunca se separan. */
+.scaleWrap,.scaleBuild{height:350px!important;min-height:350px!important;background:#f8fafc!important;overflow:hidden!important}
+.balanceFrame{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.plateRow,.buildPlates{position:absolute!important;top:93px!important;left:10%!important;width:80%!important;height:128px!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:25%!important;align-items:end!important;z-index:2!important}
+.plate,.buildPlates .drop{position:relative!important;height:128px!important;min-height:0!important;padding:0 4px 2px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;display:flex!important;align-items:end!important;justify-content:center!important}
+.plate:before,.plate:after,.buildPlates .drop:before,.buildPlates .drop:after{display:none!important;content:none!important}
+.plateContents,.buildContents{display:flex!important;align-items:flex-end!important;justify-content:center!important;align-content:flex-end!important;flex-wrap:wrap!important;gap:2px!important;max-width:100%!important;max-height:122px!important;min-height:40px!important;overflow:visible!important;position:relative!important;z-index:2!important}
+.buildPlates .drop{cursor:pointer!important;outline:2px dashed transparent;outline-offset:3px;transition:background .2s}
+.buildPlates .drop:hover{background:#14b8a615!important;outline-color:#14b8a6}
+.buildPlates .dropCaption{position:absolute!important;bottom:-69px!important;left:-10px!important;right:-10px!important;font-size:12px!important}
+.scaleWrap .subNote{bottom:3px!important}
+@media(max-width:550px){.plateRow,.buildPlates{left:8%!important;width:84%!important;gap:18%!important}.smallMarble{width:12px!important;height:12px!important}.crate{width:32px!important;height:36px!important}}
+
+/* Versión 4: platillos alineados exactamente con el dibujo SVG, sin platos duplicados. */
+.balanceFrame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.scaleWrap,.scaleBuild{aspect-ratio:900 / 350;min-height:0!important;overflow:hidden;position:relative;background:#f8fafc!important}
+.plateRow,.buildPlates{position:absolute;inset:0!important;width:100%!important;height:100%!important;display:block!important;z-index:2;pointer-events:none}
+.plateRow>.plate,.buildPlates>.drop{position:absolute!important;left:10%!important;top:25%!important;width:26%!important;height:39%!important;min-height:0!important;padding:0 1%!important;border:0!important;background:transparent!important;border-radius:0!important;box-shadow:none!important;display:flex!important;flex-direction:column;justify-content:flex-end;align-items:center;pointer-events:auto;transform:none!important}
+.plateRow>.plate:nth-child(2),.buildPlates>.drop:nth-child(2){left:64%!important}
+.plateRow>.plate:before,.plateRow>.plate:after,.buildPlates>.drop:before,.buildPlates>.drop:after{display:none!important}
+.plateContents,.buildContents{max-width:100%!important;min-height:0!important;align-content:end;justify-content:center;gap:2px;z-index:3}
+.buildPlates .dropCaption{font-size:11px;background:#ffffffc9;border-radius:5px;padding:1px 4px;margin-top:1px;z-index:3}
+.buildPlates>.drop:hover{outline:3px dashed #0f766e;outline-offset:2px;background:#99f6e421!important}
+.scaleWrap .crate,.scaleBuild .crate{width:clamp(23px,5vw,46px);height:clamp(27px,5.5vw,48px)}
+.scaleWrap .smallMarble,.scaleBuild .smallMarble{width:clamp(11px,1.7vw,18px);height:clamp(11px,1.7vw,18px)}
+@media(max-width:540px){.scaleWrap,.scaleBuild{aspect-ratio:900 / 460}.plateRow>.plate,.buildPlates>.drop{top:27%!important;height:33%!important}.plateContents,.buildContents{gap:1px}.scaleWrap .smallMarble,.scaleBuild .smallMarble{width:10px;height:10px}.scaleWrap .crate,.scaleBuild .crate{width:26px;height:28px;font-size:17px}}
+
+
+/* 2026-10-30: Objetos APOYADOS en los platillos, no suspendidos encima.
+   El SVG usa un lienzo de 900x350 y el borde del platillo esta a ~64% de alto.
+   Las zonas de objetos terminan justo en esa linea. */
+.scaleWrap .plateRow>.plate,
+.scaleBuild .buildPlates>.drop{
+  top:40%!important;
+  height:25%!important;
+  justify-content:flex-end!important;
+  overflow:visible!important;
+  padding:0 2px!important;
+}
+.scaleWrap .plateContents,
+.scaleBuild .buildContents{
+  display:flex!important;
+  flex-flow:row wrap!important;
+  align-items:flex-end!important;
+  align-content:flex-end!important;
+  justify-content:center!important;
+  width:100%!important;
+  min-height:0!important;
+  max-height:100%!important;
+  gap:3px!important;
+  transform:translateY(2px);
+}
+/* Canicas al doble de su diametro previo (18px -> 36px). */
+.scaleWrap .smallMarble,
+.scaleBuild .smallMarble{
+  width:clamp(21px,2.6vw,36px)!important;
+  height:clamp(21px,2.6vw,36px)!important;
+  flex:0 0 auto!important;
+}
+.scaleWrap .crate,
+.scaleBuild .crate{
+  width:clamp(30px,4vw,56px)!important;
+  height:clamp(35px,4.6vw,62px)!important;
+  flex:0 0 auto!important;
+}
+.scaleBuild .buildPlates>.drop .dropCaption{
+  position:absolute!important;
+  top:calc(100% + 12px)!important;
+  bottom:auto!important;
+  left:0!important;right:0!important;
+  pointer-events:none!important;
+}
+@media(max-width:540px){
+  .scaleWrap .plateRow>.plate,.scaleBuild .buildPlates>.drop{top:40%!important;height:25%!important;}
+  .scaleWrap .smallMarble,.scaleBuild .smallMarble{width:clamp(16px,4.2vw,24px)!important;height:clamp(16px,4.2vw,24px)!important;}
+  .scaleWrap .crate,.scaleBuild .crate{width:28px!important;height:32px!important;}
+  .scaleWrap .plateContents,.scaleBuild .buildContents{gap:1px!important;}
+}
+
+.batchPicker{padding:12px 14px;border:1px solid #99c6c0;border-radius:12px;background:#f0fdfa;margin:12px 0}
+.batchPicker label{display:inline-block;font-size:14px;font-weight:750;margin:0 12px 8px 0}
+.batchPicker input{display:inline-block!important;width:85px!important;max-width:85px!important;padding:8px!important;margin:0 10px 8px 0!important;text-align:center}
+.batchSummary{font-size:13px;color:#245e58}
+.batchButtons{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.panel .batchButtons button{padding:7px 10px;margin:2px;font-size:13px}
+.panel .batchButtons .batchActive{background:#0f766e;color:#fff;box-shadow:0 0 0 2px #99f6e4}
+@media(max-width:540px){.batchPicker{padding:9px}.panel .batchButtons button{padding:7px 8px}}
+
+/* Selección directa de canicas, sin selector numérico. */
+.pickableMarble{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 auto!important;min-width:0!important;
+  margin:0!important;padding:2px!important;
+  border:3px solid transparent!important;border-radius:12px!important;
+  background:transparent!important;box-shadow:none!important;
+  cursor:grab!important;touch-action:manipulation;
+}
+.pickableMarble:active{cursor:grabbing!important}
+.pickableMarble:hover{background:#ccfbf180!important}
+.pickableMarble.pickedMarble{
+  background:#99f6e466!important;border-color:#0f766e!important;
+  box-shadow:0 0 0 2px #0f766e33!important;
+}
+.pickableMarble:focus-visible{outline:3px solid #1d4ed8!important;outline-offset:2px!important}
+.directTray{min-height:130px}
+.directTray .trayItems{align-items:flex-start;gap:8px}
+.directTray .marblesTray{display:flex;flex-wrap:wrap;gap:4px}
+.scaleBuild .pickableMarble{padding:0!important;border-width:2px!important;border-radius:6px!important}
+.scaleBuild .buildContents{max-height:100%!important}

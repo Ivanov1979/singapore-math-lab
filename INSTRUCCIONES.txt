@@ -1,0 +1,26 @@
+SINGAPORE MATH LAB - Actualización interactiva sin base de datos
+
+1. Detén npm run dev con Control+C.
+2. Descomprime este ZIP.
+3. Copia las carpetas app, components y data a la RAÍZ de tu proyecto:
+   ~/Documents/singapore-math-lab-fullstack
+   Acepta reemplazar app/page.tsx. Los demás archivos se agregan.
+4. En Terminal:
+   cd ~/Documents/singapore-math-lab-fullstack
+   npm run dev
+5. Abre http://localhost:3000
+
+Esta actualización NO borra Prisma ni modifica package.json. La página principal
+no usa Prisma. Otras rutas antiguas (por ejemplo /teacher) pueden seguir
+requiriendo base de datos y no forman parte de esta actualización.
+
+Los datos de los ejercicios y los resultados se mantienen solo en memoria del
+navegador mientras la página está abierta; no se guardan al recargar.
+
+Para instalar por Terminal, si el ZIP está en Descargas:
+  cd ~/Documents/singapore-math-lab-fullstack
+  cp app/page.tsx app/page.pre-interactivo.tsx
+  unzip -o ~/Downloads/singapore-math-update.zip 'app/*' 'components/*' 'data/*'
+  npm run dev
+
+NOTA: El diagrama utiliza una relación parte-parte-total en los diez desafíos.
