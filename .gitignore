@@ -19,3 +19,7 @@ prisma/*.db-journal
 
 # macOS
 .DS_Store
+# Local build backups and debugging
+.next-backup-*/
+next-debug.log
+*.backup

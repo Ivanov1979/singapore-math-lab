@@ -1,0 +1,107 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.stage {
+  width: 155px;
+  height: 155px;
+  display: grid;
+  place-items: center;
+  perspective: 700px;
+}
+
+.cube {
+  width: 110px;
+  height: 110px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.5s cubic-bezier(.15,.8,.25,1);
+}
+
+.face {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 15px;
+  border: 2px solid #d6d6d6;
+  background: linear-gradient(145deg, #fff, #e8e8e8);
+  box-shadow: inset -5px -5px 12px #c9c9c9;
+  display: grid;
+  place-items: center;
+  backface-visibility: visible;
+}
+
+.front { transform: translateZ(55px); }
+.back { transform: rotateY(180deg) translateZ(55px); }
+.right { transform: rotateY(90deg) translateZ(55px); }
+.left { transform: rotateY(-90deg) translateZ(55px); }
+.top { transform: rotateX(90deg) translateZ(55px); }
+.bottom { transform: rotateX(-90deg) translateZ(55px); }
+
+.pips {
+  width: 78px;
+  height: 78px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
+}
+
+.pip {
+  width: 15px;
+  height: 15px;
+  background: #202020;
+  border-radius: 50%;
+  visibility: hidden;
+}
+
+.pips[data-value="1"] .pip:nth-child(5),
+.pips[data-value="2"] .pip:nth-child(1),
+.pips[data-value="2"] .pip:nth-child(9),
+.pips[data-value="3"] .pip:nth-child(1),
+.pips[data-value="3"] .pip:nth-child(5),
+.pips[data-value="3"] .pip:nth-child(9),
+.pips[data-value="4"] .pip:nth-child(1),
+.pips[data-value="4"] .pip:nth-child(3),
+.pips[data-value="4"] .pip:nth-child(7),
+.pips[data-value="4"] .pip:nth-child(9),
+.pips[data-value="5"] .pip:nth-child(1),
+.pips[data-value="5"] .pip:nth-child(3),
+.pips[data-value="5"] .pip:nth-child(5),
+.pips[data-value="5"] .pip:nth-child(7),
+.pips[data-value="5"] .pip:nth-child(9),
+.pips[data-value="6"] .pip:nth-child(1),
+.pips[data-value="6"] .pip:nth-child(3),
+.pips[data-value="6"] .pip:nth-child(4),
+.pips[data-value="6"] .pip:nth-child(6),
+.pips[data-value="6"] .pip:nth-child(7),
+.pips[data-value="6"] .pip:nth-child(9) {
+  visibility: visible;
+}
+
+.rollButton {
+  background: #f5c451;
+  color: #182438;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #bd8b25;
+}
+
+.rollButton:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube {
+    transition-duration: .01ms;
+  }
+}
