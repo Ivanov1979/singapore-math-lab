@@ -1,32 +1,80 @@
+model Student {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  firstName String?
+  lastName  String?
+  grade     Int      @default(5)
+  createdAt DateTime @default(now())
+
+  assessmentResponses AssessmentResponse[]
+  exitTickets         ExitTicket[]
+  memberships         GroupMember[]
+  attendances         Attendance[]
+}
+
+model LearningGroup {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+
+  members             GroupMember[]
+  assessmentResponses AssessmentResponse[]
+}
+
+model GroupMember {
+  id        String @id @default(cuid())
+  studentId String
+  groupId   String
+
+  student Student       @relation(fields: [studentId], references: [id])
+  group   LearningGroup @relation(fields: [groupId], references: [id])
+
+  @@unique([studentId, groupId])
+}
+
+model ExitTicket {
+  id            String   @id @default(cuid())
+  studentId     String
+  activityId    String
+  questionText  String
+  correctAnswer String
+  studentAnswer String
+  justification String
+  isCorrect     Boolean
+  createdAt     DateTime @default(now())
+
+  student Student @relation(fields: [studentId], references: [id])
+}
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Activity {
-  id        String     @id @default(cuid())
+  id        String   @id @default(cuid())
   title     String
-  grade     Int        @default(5)
+  grade     Int      @default(5)
   objective String
-  published Boolean    @default(true)
-  createdAt DateTime   @default(now())
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+
   questions Question[]
   attempts  Attempt[]
 }
 
 model Question {
-  id           String    @id @default(cuid())
+  id           String   @id @default(cuid())
   activityId   String
-  activity     Activity  @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  activity     Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
   position     Int
   title        String
   statement    String
-  modelType    String    @default("PART_WHOLE")
+  modelType    String   @default("PART_WHOLE")
   total        Int
   known        Int
   answer       Int
@@ -34,26 +82,76 @@ model Question {
   knownLabel   String
   unknownLabel String
   unit         String
-  attempts     Attempt[]
+
+  attempts Attempt[]
 
   @@unique([activityId, position])
 }
 
 model Attempt {
-  id            String   @id @default(cuid())
-  activityId    String
-  activity      Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
-  questionId    String
-  question      Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
-  learnerCode   String
-  dataJson      String
-  barJson       String
-  equationJson  String
-  answerText    String
-  justification String
-  dataCorrect   Boolean
-  modelCorrect  Boolean
+  id              String   @id @default(cuid())
+  activityId      String
+  activity        Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  questionId      String
+  question        Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  learnerCode     String
+  dataJson        String
+  barJson         String
+  equationJson    String
+  answerText      String
+  justification   String
+  dataCorrect     Boolean
+  modelCorrect    Boolean
   equationCorrect Boolean
-  answerCorrect Boolean
-  createdAt     DateTime @default(now())
+  answerCorrect   Boolean
+  createdAt       DateTime @default(now())
+}
+
+// Mathematical skills assessed in both learning experiences.
+enum MathSkill {
+  REPRESENTAR
+  MODELAR
+  RESOLVER_PROBLEMAS
+  ARGUMENTAR_COMUNICAR
+}
+
+enum ReviewStatus {
+  PENDING
+  AUTO_GRADED
+  TEACHER_REVIEWED
+}
+
+model AssessmentResponse {
+  id            String       @id @default(cuid())
+  submissionKey String       @unique
+  activityKey   String
+  questionKey   String
+  skill         MathSkill
+  studentId     String?
+  groupId       String?
+  answerJson    String
+  points        Float?
+  maxPoints     Float        @default(1)
+  reviewStatus  ReviewStatus @default(PENDING)
+  createdAt     DateTime     @default(now())
+
+  student Student?       @relation(fields: [studentId], references: [id])
+  group   LearningGroup? @relation(fields: [groupId], references: [id])
+
+  @@index([activityKey, skill])
+  @@index([studentId, createdAt])
+  @@index([groupId, createdAt])
+}
+
+// Records student attendance for each classroom session.
+model Attendance {
+  id        String   @id @default(cuid())
+  studentId String
+  sessionId String
+  createdAt DateTime @default(now())
+
+  student Student @relation(fields: [studentId], references: [id])
+
+  @@unique([studentId, sessionId])
+  @@index([sessionId])
 }

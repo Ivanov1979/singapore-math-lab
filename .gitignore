@@ -23,3 +23,6 @@ prisma/*.db-journal
 .next-backup-*/
 next-debug.log
 *.backup
+
+# Nóminas privadas de estudiantes
+prisma/estudiantes-5a.csv
