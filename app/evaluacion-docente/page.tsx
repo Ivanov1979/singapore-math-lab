@@ -1,5 +1,5 @@
 import ClassroomControl from "./ClassroomControl";
-import { redirect } from "next/navigation";
+
 import { isTeacherAuthenticated } from "@/lib/teacher-auth";
 
 import Link from "next/link";
@@ -7,9 +7,7 @@ import SkillResults from "./SkillResults";
 import StudentMonitoring from "./StudentMonitoring";
 
 export default async function EvaluacionDocentePage() {
-    if (!(await isTeacherAuthenticated())) {
-        redirect("/evaluacion-docente/login");
-    }
+    const authenticated = await isTeacherAuthenticated();
 
     return (
         <main
@@ -84,10 +82,30 @@ export default async function EvaluacionDocentePage() {
                 </div>
             </section>
 
-            <ClassroomControl />
-            <SkillResults />
-
-            <StudentMonitoring />
+            {authenticated ? (
+                <>
+                    <ClassroomControl />
+                    <SkillResults />
+                    <StudentMonitoring />
+                </>
+            ) : (
+                <section style={{
+                    padding: 24,
+                    backgroundColor: "#f1f5f9",
+                    borderRadius: 12,
+                    marginTop: 24
+                }}>
+                    <h2>Modo demostración</h2>
+                    <p>
+                        Explora Singapore Math Lab y Ludo Matemático
+                        sin iniciar sesión.
+                    </p>
+                    <p>
+                        Los resultados individuales y el control de clases
+                        permanecen protegidos.
+                    </p>
+                </section>
+            )}
 
             <footer
                 style={{
