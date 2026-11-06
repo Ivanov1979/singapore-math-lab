@@ -1,3 +1,4 @@
+import { isTeacherAuthenticated } from "@/lib/teacher-auth";
 
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
@@ -42,13 +43,10 @@ function summarize(records: RecordScore[]) {
 }
 
 export async function GET() {
-    if (
-        process.env.NODE_ENV !== "development" ||
-        process.env.ENABLE_ASSESSMENT_TEST_API !== "true"
-    ) {
+    if (!(await isTeacherAuthenticated())) {
         return NextResponse.json(
-            { error: "Resultados no disponibles." },
-            { status: 403 }
+            { error: "Acceso docente no autorizado." },
+            { status: 401 }
         );
     }
 

@@ -1,3 +1,4 @@
+import { isTeacherAuthenticated } from "@/lib/teacher-auth";
 
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
@@ -5,15 +6,12 @@ import { db } from "@/lib/db";
 export const runtime = "nodejs";
 
 export async function GET() {
-  if (
-    process.env.NODE_ENV !== "development" ||
-    process.env.ENABLE_ASSESSMENT_TEST_API !== "true"
-  ) {
-    return NextResponse.json(
-      { error: "Consulta no habilitada." },
-      { status: 403 }
-    );
-  }
+    if (!(await isTeacherAuthenticated())) {
+        return NextResponse.json(
+            { error: "Acceso docente no autorizado." },
+            { status: 401 }
+        );
+    }
 
   try {
     const tickets = await db.exitTicket.findMany({

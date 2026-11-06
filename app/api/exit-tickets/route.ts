@@ -19,19 +19,21 @@ const tickets = {
 type TicketKey = keyof typeof tickets;
 
 export async function POST(request: NextRequest) {
-    // Keep classroom submissions disabled until the student
-    // participation flow is ready and authorized.
-    if (
-        process.env.NODE_ENV !== "development" ||
-        process.env.ENABLE_ASSESSMENT_TEST_API !== "true"
-    ) {
-        return NextResponse.json(
-            { error: "El registro aún no está habilitado." },
-            { status: 403 }
-        );
-    }
-
     try {
+        const setting = await db.classroomSetting.findUnique({
+            where: { id: "main" },
+            select: { isOpen: true },
+        });
+
+        if (!setting?.isOpen) {
+            return NextResponse.json(
+                {
+                    error: "La clase está cerrada. Puedes practicar, pero no registrar respuestas.",
+                },
+                { status: 403 }
+            );
+        }
+
         const body: unknown = await request.json();
 
         if (!body || typeof body !== "object") {

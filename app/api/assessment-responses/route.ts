@@ -15,24 +15,19 @@ type Submission = {
 };
 
 export async function POST(request: NextRequest) {
-  // Temporary safety gate: do not accept public submissions.
-  // A proper authenticated classroom session will replace this.
-  if (process.env.ENABLE_ASSESSMENT_TEST_API !== "true") {
-    return NextResponse.json(
-      { error: "El registro de respuestas aún no está habilitado." },
-      { status: 503 }
-    );
-  }
-
-  // This endpoint is deliberately restricted to local development.
-  if (process.env.NODE_ENV !== "development") {
-    return NextResponse.json(
-      { error: "API de pruebas no disponible en producción." },
-      { status: 403 }
-    );
-  }
-
   try {
+    const setting = await db.classroomSetting.findUnique({
+      where: { id: "main" },
+      select: { isOpen: true },
+    });
+
+    if (!setting?.isOpen) {
+      return NextResponse.json(
+        { error: "La clase está cerrada. Puedes practicar, pero no registrar respuestas." },
+        { status: 403 }
+      );
+    }
+
     const body = (await request.json()) as Submission;
 
     if (

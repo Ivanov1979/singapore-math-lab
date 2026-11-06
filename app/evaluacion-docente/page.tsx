@@ -1,3 +1,4 @@
+import ClassroomControl from "./ClassroomControl";
 import { redirect } from "next/navigation";
 import { isTeacherAuthenticated } from "@/lib/teacher-auth";
 
@@ -83,6 +84,7 @@ export default async function EvaluacionDocentePage() {
                 </div>
             </section>
 
+            <ClassroomControl />
             <SkillResults />
 
             <StudentMonitoring />

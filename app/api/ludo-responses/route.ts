@@ -31,15 +31,24 @@ type Submission = {
 };
 
 export async function POST(request: Request) {
-    // Temporary protection while classroom authentication
-    // has not yet been implemented.
-    if (
-        process.env.NODE_ENV !== "development" ||
-        process.env.ENABLE_ASSESSMENT_TEST_API !== "true"
-    ) {
+    // Only accept submissions while the teacher has opened the classroom.
+    try {
+        const setting = await db.classroomSetting.findUnique({
+            where: { id: "main" },
+            select: { isOpen: true },
+        });
+
+        if (!setting?.isOpen) {
+            return NextResponse.json(
+                { error: "La clase está cerrada. Puedes practicar, pero no registrar respuestas." },
+                { status: 403 }
+            );
+        }
+    } catch (error) {
+        console.error("Ludo classroom status error:", error);
         return NextResponse.json(
-            { error: "Ludo submissions are disabled." },
-            { status: 403 }
+            { error: "No se pudo verificar el estado de la clase." },
+            { status: 503 }
         );
     }
 
