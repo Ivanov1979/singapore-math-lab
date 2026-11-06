@@ -1,3 +1,4 @@
+import { isTeacherAuthenticated } from "@/lib/teacher-auth";
 
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
@@ -5,14 +6,10 @@ import { db } from "@/lib/db";
 export const runtime = "nodejs";
 
 export async function GET(request: NextRequest) {
-  // Acceso provisional: solo para pruebas de desarrollo.
-  if (
-    process.env.NODE_ENV !== "development" ||
-    process.env.ENABLE_ASSESSMENT_TEST_API !== "true"
-  ) {
+  if (!(await isTeacherAuthenticated())) {
     return NextResponse.json(
-      { error: "Búsqueda no habilitada." },
-      { status: 403 }
+      { error: "Acceso docente no autorizado." },
+      { status: 401 }
     );
   }
 
