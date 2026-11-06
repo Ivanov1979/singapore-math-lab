@@ -1,3 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==========================================
+// STUDENTS
+// ==========================================
+
 model Student {
   id        String   @id @default(cuid())
   code      String   @unique
@@ -10,7 +23,12 @@ model Student {
   exitTickets         ExitTicket[]
   memberships         GroupMember[]
   attendances         Attendance[]
+  sessions            StudentSession[]
 }
+
+// ==========================================
+// LEARNING GROUPS
+// ==========================================
 
 model LearningGroup {
   id        String   @id @default(cuid())
@@ -32,6 +50,10 @@ model GroupMember {
   @@unique([studentId, groupId])
 }
 
+// ==========================================
+// EXIT TICKETS
+// ==========================================
+
 model ExitTicket {
   id            String   @id @default(cuid())
   studentId     String
@@ -46,14 +68,9 @@ model ExitTicket {
   student Student @relation(fields: [studentId], references: [id])
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
+// ==========================================
+// ACTIVITIES
+// ==========================================
 
 model Activity {
   id        String   @id @default(cuid())
@@ -107,7 +124,10 @@ model Attempt {
   createdAt       DateTime @default(now())
 }
 
-// Mathematical skills assessed in both learning experiences.
+// ==========================================
+// MATHEMATICAL SKILLS
+// ==========================================
+
 enum MathSkill {
   REPRESENTAR
   MODELAR
@@ -120,6 +140,10 @@ enum ReviewStatus {
   AUTO_GRADED
   TEACHER_REVIEWED
 }
+
+// ==========================================
+// ASSESSMENT RESPONSES
+// ==========================================
 
 model AssessmentResponse {
   id            String       @id @default(cuid())
@@ -143,7 +167,10 @@ model AssessmentResponse {
   @@index([groupId, createdAt])
 }
 
-// Records student attendance for each classroom session.
+// ==========================================
+// ATTENDANCE
+// ==========================================
+
 model Attendance {
   id        String   @id @default(cuid())
   studentId String
@@ -156,10 +183,25 @@ model Attendance {
   @@index([sessionId])
 }
 
-// Teacher-controlled classroom availability.
-// Students may practice while closed, but submissions are disabled.
+// ==========================================
+// CLASSROOM CONTROL
+// ==========================================
+
 model ClassroomSetting {
   id        String   @id @default("main")
   isOpen    Boolean  @default(false)
   updatedAt DateTime @updatedAt
+}
+
+model StudentSession {
+  id        String   @id @default(cuid())
+  studentId String   @unique
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@index([expiresAt])
 }
