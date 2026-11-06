@@ -155,3 +155,11 @@ model Attendance {
   @@unique([studentId, sessionId])
   @@index([sessionId])
 }
+
+// Teacher-controlled classroom availability.
+// Students may practice while closed, but submissions are disabled.
+model ClassroomSetting {
+  id        String   @id @default("main")
+  isOpen    Boolean  @default(false)
+  updatedAt DateTime @updatedAt
+}
