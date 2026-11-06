@@ -1,9 +1,15 @@
+import { redirect } from "next/navigation";
+import { isTeacherAuthenticated } from "@/lib/teacher-auth";
 
 import Link from "next/link";
 import SkillResults from "./SkillResults";
 import StudentMonitoring from "./StudentMonitoring";
 
-export default function EvaluacionDocentePage() {
+export default async function EvaluacionDocentePage() {
+    if (!(await isTeacherAuthenticated())) {
+        redirect("/evaluacion-docente/login");
+    }
+
     return (
         <main
             style={{
