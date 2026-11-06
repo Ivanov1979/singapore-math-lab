@@ -1,4 +1,3 @@
-import { isTeacherAuthenticated } from "@/lib/teacher-auth";
 
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
@@ -6,13 +5,6 @@ import { db } from "@/lib/db";
 export const runtime = "nodejs";
 
 export async function GET(request: NextRequest) {
-  if (!(await isTeacherAuthenticated())) {
-    return NextResponse.json(
-      { error: "Acceso docente no autorizado." },
-      { status: 401 }
-    );
-  }
-
   const query = request.nextUrl.searchParams.get("q")?.trim() ?? "";
 
   if (query.length < 3 || query.length > 60) {
