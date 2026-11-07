@@ -261,16 +261,7 @@ export default function Page() {
       )}
     </footer>
 
-    <button
-      type="button"
-      className={styles.secondary}
-      onClick={() => setShowExitTicket(current => !current)}
-      aria-expanded={showExitTicket}
-    >
-      {showExitTicket
-        ? "Cerrar ticket de salida"
-        : "📝 Ticket de salida — Experiencia 3"}
-    </button>
+
 
     {showExitTicket && (
       <section aria-label="Evaluación final individual">
